@@ -16,4 +16,12 @@ addRoutes : 动态添加路由
 
 根据模式mode创建不同的路由对象 `this.history = new HasHistory(this)`
 
-  
+history 路由实现依赖于html5的新增api history.pushState(),可以操作浏览器的历史记录，而不会引起页面的刷新
+
+hash 和 pushState 对比有如下缺点：
+
+1. hash只能修改url的片段标识符的部分。并且必须从#号开始，但是pushState且能修改路径、查询参数和片段标识符。pushState比hash更符合前端路由的访问方式，更加优雅(因为不带#号)。
+
+2. hash必须和原先的值不同，才能新增会话浏览历史的记录，但是pushState可以新增相同的url的记录，
+
+1.1 使用hashchange事件来监听url hash的改变
