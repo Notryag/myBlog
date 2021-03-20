@@ -25,3 +25,8 @@ hash 和 pushState 对比有如下缺点：
 2. hash必须和原先的值不同，才能新增会话浏览历史的记录，但是pushState可以新增相同的url的记录，
 
 1.1 使用hashchange事件来监听url hash的改变
+
+
+# vuex
+todo
+vuex 原理
