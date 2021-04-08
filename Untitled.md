@@ -26,6 +26,12 @@ var size12 = changeSize(12);
 Function.__proto__ === Function.prototype
 ```
 
+在js中对基础类型进行指定方法的操作相当于在后台创建了一个对应类型的对象， 用对象的方法进行操作
+var s1 = new String("some text");
+var s2 = s1.substring(2);
+s1 = null;
+
+
 #### 继承 
 
 

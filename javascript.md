@@ -5,6 +5,11 @@ object
 Data、function、Array
 
 `宏任务` 微任务 浏览器渲染 宏任务
+在浏览器环境中，有JS 引擎线程和渲染线程，且两个线程互斥。
+Node环境中，只有JS 线程。
+
+执行一个宏任务(先执行同步代码)-->执行所有微任务-->UI render-->执行下一个宏任务-->执行所有微任务-->UI render-->......
+
 
 ```js
 Promise.property.all = function (iterators) {
