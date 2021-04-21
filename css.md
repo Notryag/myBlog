@@ -47,3 +47,6 @@ align-content属性定义了多根轴线的对齐方式。如果项目只有一�
 ### rem
 rem是根元素字体的单位，比如 html{font-size:16px;} ，1rem相当于16px。
 布局用flex  大小用rem
+
+**标准盒模型**
+一个块的总宽度= width + margin(左右) + padding(左右) + border(左右)

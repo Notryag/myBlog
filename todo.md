@@ -23,3 +23,5 @@ import是es6的一个语法标准，如果要兼容浏览器的话必须转化�
 
 require是运行时调用，所以require理论上可以运用在代码的任何地方
 import是编译时调用，所以必须放在文件开头,import会返回一个Promise对象
+
+watch 一个computed属性会怎么样

@@ -99,3 +99,31 @@ iter.next() // { value: undefined, done: true }
 ```
 
 是否可遍历,却决于有没有 Symbol.itreator , object 对象就没有 iterator 属性
+
+
+### Generator函数
+
+调用 Generator 函数后，该函数并不执行,返回的是一个遍历器对象(Iterator Object)
+
+```js
+var hw = helloWorldGenerator();
+hw.next()
+
+function* demo() {
+  console.log('Hello' + (yield)); // OK
+  console.log('Hello' + (yield 123)); // OK
+}
+var a = demo()
+a.next() // {value: undefined, done: false}
+a.next() // Helloundefined {value: 123, done: false}
+a.next() // Helloundefined {value: undefined, done: true}
+
+var b =demo()
+b.next()  // {value: undefined, done: false}
+b.next() // Helloundefined {value: 123, done: false}
+b.next(1321321) // Hello1321321 {value: undefined, done: true}
+```
+
++ yield表达式本身没有返回值，或者说总是返回undefined
+
++ next方法可以带一个参数，该参数就会被当作`上一个`yield表达式的返回值。
