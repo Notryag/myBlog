@@ -50,3 +50,22 @@ rem是根元素字体的单位，比如 html{font-size:16px;} ，1rem相当于16
 
 **标准盒模型**
 一个块的总宽度= width + margin(左右) + padding(左右) + border(左右)
+标准盒模型
+widht = content
+怪异盒模型
+一个块的总宽度= width + margin(左右)（即width已经包含了padding和border值）
+
+
+#### BFC
+BFC(Block formatting context)直译为"块级格式化上下文"
+
+创建bfc
+1. float的值不是none。
+2. 绝对定位元素(absolute fixed)。
+3. display的值是inline-block、table-cell、flex、table-caption或者inline-flex
+4. overflow的值不是visible的快元素
+
+作用
+清除浮动
+避免外边距重叠
+防止浮动元素覆盖

@@ -21,7 +21,7 @@ c ->   ACK   -> s
 在内存里开辟资源(queue空间socket),为对方服务
 
 ### 三次握手四次挥手
-> [TCP](https://www.cnblogs.com/shineyoung/p/10656914.html)
+> [TCP博客](https://www.cnblogs.com/shineyoung/p/10656914.html)
 
 SYN：长1位，在连接建立时用来同步序号。当SYN=1而ACK=0时，表明这是一个连接请求报文。对方若同意建立连接，则应在响应报文中使SYN=1和ACK=1. 因此,SYN置1就表示这是一个连接请求或连接接受报文。
 ACK：长1位，置位表示确认号字段有效；TCP协议规定，只有ACK=1时有效，也规定连接建立后所有发送的报文的ACK必须为1
