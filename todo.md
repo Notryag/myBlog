@@ -25,3 +25,24 @@ require是运行时调用，所以require理论上可以运用在代码的任何
 import是编译时调用，所以必须放在文件开头,import会返回一个Promise对象
 
 watch 一个computed属性会怎么样
+
+$parent 改变父组件的值
+
+position 
+隐藏元素
+html解析
+absolute 定位根据什么
+
+页面卡顿原因
+
+做的优化
+
+less sass不同
+可以继承父元素的css属性
+
+1/0
+
+克隆 方法
+
+template属性作用
+
