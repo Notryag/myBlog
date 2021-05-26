@@ -51,10 +51,9 @@ rem是根元素字体的单位，比如 html{font-size:16px;} ，1rem相当于16
 **标准盒模型**
 一个块的总宽度= width + margin(左右) + padding(左右) + border(左右)
 标准盒模型
-widht = content
+width指content部分的宽度
 怪异盒模型
-一个块的总宽度= width + margin(左右)（即width已经包含了padding和border值）
-
+width表示content+padding+border这三个部分的宽度
 
 #### BFC
 BFC(Block formatting context)直译为"块级格式化上下文"

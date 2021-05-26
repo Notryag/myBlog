@@ -10,6 +10,41 @@ Node环境中，只有JS 线程。
 
 执行所有微任务-->执行一个宏任务(先执行同步代码)-->UI render-->执行所有微任务-->执行下一个宏任务-->UI render-->......
 
+js有同步任务,有异步任务。在执行同步任务的时候遇到异步代码会将其插入到异步队列中，分为宏任务和微任务队列
+执行完宏任务再执行微任务
+
+微任务中添加微任务，
+```js
+Promise.resolve().then(() =>{
+	console.log(1)
+	Promise.resolve().then(()=> {
+		// 这个任务会插队
+		console.log(2)
+	})
+}).then(()=> {
+	console.log(3)
+})
+
+// 2个promise 并行的时候是执行完一个执行另一个
+1 3 5
+2 4 6
+返回的是 1 2 3 4 5 6
+
+new Promise(resolve => {
+    let resolvedPromise = Promise.resolve()
+    resolve(resolvedPromise)
+}).then(() => {
+    console.log('resolvePromise resolved')
+})
+
+Promise.resolve()
+   .then(() => { console.log('promise1') })
+   .then(() => { console.log('promise2') })
+   .then(() => { console.log('promise3') })
+
+```
+
+
 await 后面的和then后面相同
 
 ```js
@@ -68,3 +103,6 @@ Foo[Symbol.hasInstance](foo)
 后端返回值是js ，调用的就是`handlerJsonp` 这个方法
 
 前端需要提前定义这个函数, 在返回值完成后, 就直接执行
+
+
+https://github.com/root-lucas/react-admin-backend
