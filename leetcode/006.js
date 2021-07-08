@@ -32,4 +32,3 @@ var convert = function(s, numRows) {
 
     return str
 };
-console.log(convert("PAYPALISHIRING", 3))
