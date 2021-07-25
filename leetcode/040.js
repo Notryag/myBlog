@@ -17,8 +17,6 @@ var combinationSum2 = function (candidates, target) {
       if(oi <index && cloneCandidates[index - 1] ===  num ) continue
       backtrack([...path, num],res-num,index + 1)
     }
-
-
   }
   backtrack([],target,0)
   return result
