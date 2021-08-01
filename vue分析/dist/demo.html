@@ -1,0 +1,32 @@
+<script src="./index.js"></script>
+<div id="app">
+    <div>Hello World!</div>
+    <div>{{count}}</div>
+    <button @click="add">+1</button>
+</div>
+<script>
+  const {ref, reactive, computed, createApp, toRefs} = Vue
+  createApp({
+    setup() {
+      let count = ref(0)
+      const add = () => {
+        count.value++
+      }
+      let state = reactive({
+        name: 'zly',
+        age: 47
+      })
+
+      // setInterval(()=>{
+      //   state.name += '--'
+      // }, 1000)
+
+      return {
+        ...toRefs(state),
+        count,
+        add
+      }
+    }
+  }).mount('#app')
+
+</script>
