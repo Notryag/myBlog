@@ -123,6 +123,8 @@ var size12 = changeSize(12);
 
 #### 原型链
 
+原型链是由原型对象组成，，每个对象都有`__proto__` 属性，指向了创建该对象的构造函数的原型，__proto__ 将对象连接起来组成了原型链。是一个用来实现继承和共享属性的对象链。
+
 ![img](https://img2018.cnblogs.com/blog/850375/201907/850375-20190708153139577-2105652554.png)
 
 ![img](https://upload-images.jianshu.io/upload_images/13902845-babea8f0cde0d791.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
@@ -158,13 +160,39 @@ Child.prototype = new F();
 
 
 
-#### 事件委托/冒泡
+### 事件委托/冒泡
 事件传播分成三个阶段：
 
 捕获阶段：从window对象传导到目标节点（上层传到底层）称为“捕获阶段”（capture phase），捕获阶段不会响应任何事件；
 目标阶段：在目标节点上触发，称为“目标阶段”
 冒泡阶段：从目标节点传导回window对象（从底层传回上层），称为“冒泡阶段”（bubbling phase）。事件代理即是利用事件冒泡的机制把里层所需要响应的事件绑定到外层；
 
-#### html解析
+### html解析
 加载html文件,在加载html的同时构建dom树. 遇到html节点就放在dom树中, 遇到js停止解析,运行js
 dom树的构建和样式的加载并行进行，dom树加载完之后，构造渲染树。
+
+
+### new运算符的执行过程
++ 新生成一个对象
++ 链接到原型: obj.__proto__ = Con.prototype
++ 绑定this: apply
++ 返回新对象(如果构造函数有自己 retrun 时，则返回该值)
+
+
+### 从输入 url 到展示的过程
+
+DNS 解析
++ TCP 三次握手
++ 发送请求，分析 url，设置请求报文(头，主体)
++ 服务器返回请求的文件 (html)
++ 浏览器渲染
+	+ HTML parser --> DOM Tree
+		+ 标记化算法，进行元素状态的标记
+		+ dom 树构建
+	+ CSS parser --> Style Tree
+		+ 解析 css 代码，生成样式树
+	+ attachment --> Render Tree
+	+ 结合 dom树 与 style树，生成渲染树
+	+ layout: 布局
+	+ GPU painting: 像素绘制页面
+
