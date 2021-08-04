@@ -1,29 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>防止margin重叠</title>
-</head>
 <style>
-.container {
-    overflow: hidden;
-}
-p {
-    width: 100px;
-    height: 100px;
-    background: lightblue;
-    margin: 100px;
-}
+    p{margin: 0;}
+    .parent{overflow: hidden;}
+    .left,.right{float: left;width: 100px;}
+    .center{float: left; width:calc(100% - 240px);margin: 0 20px;}
 </style>
-<body>
-<div class="container">
-    <p></p>
+<div class="parent" style="background-color: lightgrey;">
+    <div class="left" style="background-color: lightblue;">
+        <p>left</p>
+    </div>
+    <div class="center" style="background-color: pink;">
+        <p>center</p>
+        <p>center</p>
+    </div>
+    <div class="right"  style="background-color: lightgreen;">
+        <p>right</p>
+    </div>
 </div>
-<div class="container">
-    <p></p>
-</div>
-
-</body>
-</html>
