@@ -2,8 +2,26 @@ js 的基本类型 Number, String, null, undefined, Boolean, Symbol, Object, big
 
 object Data、function、Array
 
+### JS是单线程的”指的是JS 引擎线程
 `宏任务` 微任务 浏览器渲染 宏任务 在浏览器环境中，有JS 引擎线程和渲染线程，且两个线程互斥。 Node环境中，只有JS 线程。
+```js
+console.log('start')
+setTimeout(() => {
+  console.log('setTimeout')
+}, 0)
+new Promise((resolve) => {
+  console.log('promise')
+  resolve()
+})
+  .then(() => {
+    console.log('then1')
+  })
+  .then(() => {
+    console.log('then2')
+  })
 
+console.log('end')
+```
 执行所有微任务-->执行一个宏任务(先执行同步代码)-->UI render-->执行所有微任务-->执行下一个宏任务-->UI render-->......
 
 1. 首先执行同步代码，这属于宏任务
@@ -147,9 +165,19 @@ s1 = null;
 
 用于寻找自身的属性，现在自己身上找，找不到会向上一步步根据原型链查找 Object/Array/String 等等构造函数本质上和 Function 一样，均继承于Function.prototype。
 
-#### 继承
-
+### 继承
 目的: 可以在children中使用 `parent` 的属性和方法, 包括prototype上面的
+
+1、原型链继承
++ 核心： 将父类的实例作为子类的原型
+
+2、构造继承
++ 核心：使用父类的构造函数来增强子类实例`Animal.call(this);`
+
+3. 组合继承
++ 核心：组合原型链继承和借用构造函数继承
+
+4. 寄生组合继承
 
 ```js
 function Child(name, age) {
@@ -157,8 +185,7 @@ function Child(name, age) {
   this.age = age;
 }
 
-var F = function () {
-};
+var F = function () {};
 F.prototype = Parent.prototype;
 Child.prototype = new F();
 ```
@@ -182,39 +209,3 @@ Child.prototype = new F();
 + 链接到原型: obj.__proto__ = Con.prototype
 + 绑定this: apply
 + 返回新对象(如果构造函数有自己 retrun 时，则返回该值)
-
-### 从输入 url 到展示的过程
-
-DNS 解析
-
-+ TCP 三次握手
-+ 发送请求，分析 url，设置请求报文(头，主体)
-+ 服务器返回请求的文件 (html)
-+ 浏览器渲染
-    + HTML parser --> DOM Tree
-        + 标记化算法，进行元素状态的标记
-        + dom 树构建
-    + CSS parser --> Style Tree
-        + 解析 css 代码，生成样式树
-    + attachment --> Render Tree
-    + 结合 dom树 与 style树，生成渲染树
-    + layout: 布局
-    + GPU painting: 像素绘制页面
-
-TCP拥塞
-> 拥塞窗口值cwnd 慢开始门限值ssthresh
-
-网络中某一资源的需求超过了该资源所能提供的可用部分,网络性能就要变坏. 网络会成抛物线,越多吞吐量会变小
-
-+ 慢开始 --- 小于慢开始门限制
-    + 拥塞窗口,拥塞窗口被初始化为1个报文段,当与另一个网络的主机建立TCP连接时,拥塞窗口就翻倍
-+ 拥塞避免
-    + 每个传输轮次拥塞窗口cwnd加1
-    + 当重传计时器超时,网络很可能出现了拥塞
-        + 将慢开始门限值sshthresh更新为发生拥塞时 `拥塞窗口` cwnd的一半
-        + 将`拥塞窗口cwnd`减小为1,并从头执行慢开始算法
-+ 快重传
-    + 拥塞窗口减半cwnd=cwnd/2
-    + 慢开始门限ssthresh=cwnd（减半后的值）
-+ 快恢复
-    + 设置cwnd = ssthresh＋ack(3)个数
