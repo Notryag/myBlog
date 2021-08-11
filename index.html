@@ -1,18 +1,37 @@
 <style>
-    p{margin: 0;}
-    .parent{overflow: hidden;}
-    .left,.right{float: left;width: 100px;}
-    .center{float: left; width:calc(100% - 240px);margin: 0 20px;}
+    img {
+
+        display: block;
+        position: fixed;
+        /*transition: 0.4s ease-in;*/
+        animation: runing 1s linear 2s infinite;
+        border: 1px lightblue solid;
+        /* 动画名称 一次的时间 速度曲线  什么时候开始 循环次数*/
+    }
+
+    @keyframes runing {
+        from{
+            transform: rotate(360deg);
+        }
+        to{
+            transform: rotate(0deg);
+        }
+    }
+    /*img:hover {*/
+    /*    transform: rotate(180deg);*/
+    /*}*/
 </style>
-<div class="parent" style="background-color: lightgrey;">
-    <div class="left" style="background-color: lightblue;">
-        <p>left</p>
-    </div>
-    <div class="center" style="background-color: pink;">
-        <p>center</p>
-        <p>center</p>
-    </div>
-    <div class="right"  style="background-color: lightgreen;">
-        <p>right</p>
-    </div>
+<div>
+    <img src="http://www.baidu.com/img/bdlogo.gif"/>
 </div>
+<script>
+let oTop = document.getElementsByTagName('img')[0]
+document.onmousemove = function(evt){
+  var oEvent = evt || window.event;
+
+
+  oTop.style.left = oEvent.clientX - oTop.getBoundingClientRect().width / 2   +"px";
+  oTop.style.top = oEvent.clientY  - oTop.getBoundingClientRect().height / 2  + "px";
+}
+
+</script>
