@@ -41,3 +41,15 @@
     height: 200px;
 }
 ```
+
+
+伪类
++ :active
++ :focus
++ :hover
+
+伪元素
++ before
++ after
++ first-letter
+  
