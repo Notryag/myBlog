@@ -53,3 +53,13 @@
 + after
 + first-letter
   
+
+1. 新增语义化标签
+main footer header nav aside article e section embed video aidop 
+优点
++ 增加语义化
++ 有利于seo
++ 结构清晰
+
+行内元素: span  i  a br em img input select textarea
+块级元素: div  h1 ul ol table 

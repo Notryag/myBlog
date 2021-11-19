@@ -74,3 +74,9 @@ getComputedStyle能读取所有css属性。width 不包含padding & border  有�
 getBoundingClientRect可以放心大胆使用，没有副作用。但getBoundingClientRect能读取属性没有getStyle丰富 无单位
 等同于offsetWidth和offsetHeight 。 包含了padding和border. 无单位
 统一：3种方法使用，要把布局模式设置为box-sizing: box-border.
+
+
+屏幕适配
+1. 媒体查询
+2. rem em 
+3. flex布局
