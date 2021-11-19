@@ -209,3 +209,35 @@ Child.prototype = new F();
 + 链接到原型: obj.__proto__ = Con.prototype
 + 绑定this: apply
 + 返回新对象(如果构造函数有自己 retrun 时，则返回该值)
+
+
+第三个参数默认为false,在冒泡期间执行.为true时,在捕获阶段执行
+```js
+element.addEventListener(event, function, useCapture=false)
+```
+
+forEach 中不能跳出循环,return 只能跳出一次循环
+如果一定需要循环,可以用 throw 报错,外层需要用trycatch 包裹
+
+
+ajax原生
+```js
+var xhr = new XMLHttpRequest();
+xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");// get请求不需要
+xhr.open('post', '02.post.php' );
+xhr.send('name=fox&age=18');
+xhr.onreadystatechange 
+```
+1. 新建xhr对象
+2. 设置请求头
+3. 设置url参数open
+4. 发送请求 send
+5. 添加监听
+
+前端的设计模式：
++ 单例模式   
++ 观察者模式
++ 工厂模式
++ 策略模式
+
+get

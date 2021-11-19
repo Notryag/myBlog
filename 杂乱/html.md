@@ -63,3 +63,7 @@ main footer header nav aside article e section embed video aidop
 
 行内元素: span  i  a br em img input select textarea
 块级元素: div  h1 ul ol table 
+
+
+box-sizing：content-box   //标准盒模型
+box-sizing：border-box    //怪异盒模型
