@@ -116,10 +116,9 @@ TCP拥塞
         + 将慢开始门限值sshthresh更新为发生拥塞时 `拥塞窗口` cwnd的一半
         + 将`拥塞窗口cwnd`减小为1,并从头执行慢开始算法
 + 快重传
-    + 拥塞窗口减半cwnd=cwnd/2
-    + 慢开始门限ssthresh=cwnd（减半后的值）
+    + 收到3个以上的重复的ACK即开始重传，随后进入快恢复算法
 + 快恢复
-    + 设置cwnd = ssthresh＋ack(3)个数
+    + 收到第3个重复确认的ACK时，sstresh=当前cwnd的一半，cwnd=ssthresh+3。发送重传数据
 
 
 ### HTTP 1.0/1.1/2.0区别
