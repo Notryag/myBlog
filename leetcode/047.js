@@ -31,3 +31,6 @@ console.log(permuteUnique([3,3,0,3]))
 // 第一 nums[i -1] === nums[i] 一定要有, 其次还需要有个条件对它进行限制, 首先就是不能每个都跳过
 // 如果只取重复值的最后一个?
 // 还有一个就是需要排除已经push的值?
+function calculateDaysBetweenDates(begin, end) {
+  
+}
