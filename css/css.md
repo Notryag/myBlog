@@ -80,3 +80,22 @@ getBoundingClientRect可以放心大胆使用，没有副作用。但getBounding
 1. 媒体查询
 2. rem em 
 3. flex布局
+
+flexible.js 实现用js来自动根据屏幕宽度设置 html元素的font-size的值。
+[移动端适配](https://www.jianshu.com/p/7139c05c7971)
+1. 15年手淘方案：Flexible + rem (`因为vw当时浏览器支持不多`)
+2. 纯粹使用 vw 方案
+3. vw + rem，优化布局： 就是限制元素字体的最大最小值
+
+### 盒模型
+怪异盒模型: content + padding + border
+标准盒模型: content
+设置同样宽度下，标准盒模型更大，因为相当于设置的content的宽度
+
+
+垂直居中:
+1. flex
+2. absolute + transform
+3. absolute + 负margin
+4. inline-block + vertical-aligin
+5. `margin:50% auto;`+ `transform: translateY(-50%);` 块级元素
