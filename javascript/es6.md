@@ -1,6 +1,11 @@
-let const 扩展运算符 promise 
-class async/await  set/map 默认参数  map/reduce/some/find
-箭头函数
++ let const 
++ 扩展运算符 
++ promise 
++ class 
++ async/await  
++ set/map 默认参数  
++ map/reduce/some/find
++ 箭头函数
 
 let const var 的区别
 1. var 有变量提升,let const 暂时性死区
