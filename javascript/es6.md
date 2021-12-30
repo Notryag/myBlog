@@ -4,7 +4,7 @@
 + class 
 + async/await  
 + set/map 默认参数  
-+ map/reduce/some/find
++ map/reduce/some/find/every/
 + 箭头函数
 
 let const var 的区别
