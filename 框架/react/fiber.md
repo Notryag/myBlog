@@ -1,4 +1,16 @@
 ## fiber
+fiber 把一个大的更新任务拆解成许多个小任务
+重要特征是 可以被打断的异步渲染模式
+
+为了可以打断,生命周期分成了3个阶段, render pre-commit  commit
+render阶段执行过程中允许被打断,commit阶段总是同步执行的
+
+
+setState fetch 操作真实dom
+可以转移到其他生命周中
+
+componentWillMount  等放在componentDidMount
+在fiber 中可能带来非常严重的bug,componentWillxxx可能被重复执行 
 
 ### 屏幕刷新率
 每秒60次
