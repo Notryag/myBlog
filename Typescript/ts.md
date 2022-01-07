@@ -22,18 +22,18 @@ yarn tsc --local zh-CN
 - 数组类型
   - `let arr: number[]`
   - `let arr: Array<number>`
-- 元组
-  - 已知元素数量和类型的数组
-    - `let x: [string, number]`
+- Object
+  - 也就是除number，string，boolean，symbol，null或undefined之外的类型
+- null
+- undefined
 - 枚举
   - 一个枚举中只会存在几个固定的值
   - 会编译为 双向的键值对对象 {a:1,1:a},也可以常量枚举  前面加 `const`
   - 数字会自增,字符串必须要全部初始化
-- Object
-  - 也就是除number，string，boolean，symbol，null或undefined之外的类型
+- 元组
+  - 已知元素数量和类型的数组
+    - `let x: [string, number]`
 - void
-- null
-- undefined
 - never
 
 如果找不到对应的版本,可以用标准库
