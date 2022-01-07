@@ -45,3 +45,47 @@ useEffect(() => {
 可以不用this
 class: this.state.count
 hooks: count
+
+### 使用useSelector useDispatch 替代connect
+```jsx
+import {connect} from 'dva'
+
+const Home = props=>{
+    // 获取数据
+    const {user,loading,dispatch} = props
+
+    // 发起请求
+    useEffect(()=>{  dispatch({ type:'user/fetchUser',payload:{} }) },[])
+
+    // 渲染页面
+    if(loading) return <div>loading...</div>
+    return <div>{user.name}<div>
+}
+
+export default connect(({loading,user})=>({
+    loading:loading.effects['user/fetchUser'],
+    user:user.userInfo
+}))(Home)
+```
+
+```jsx
+import {useDispatch,useSelector} from 'dva'
+
+const Home = props=>{
+
+    const dispatch = useDispatch()
+
+    const loadingEffect = useSelector(state =>state.loading);
+    const loading = loadingEffect.effects['user/fetchUser'];
+    const user = useSelector(state=>state.user.userInfo)
+
+    // 发起请求
+    useEffect(()=>{ dispatch({ type:'user/fetchUser',payload:{} }) },[])
+
+    // 渲染页面
+    if(loading) return <div>loading...</div>
+    return (  <div>{user.name}<div> )
+}
+
+export default Home
+```
