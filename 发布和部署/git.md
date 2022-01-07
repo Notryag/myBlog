@@ -22,6 +22,11 @@ cd /root/nvm
 nvm install stable
 ```
 
+### 推送tag
+```js
+git tag 1.00
+git push origin --tags
+```
 
 
 ```js
