@@ -1,5 +1,28 @@
 # docker
 
+## 安装docker
+```sh
+yum install -y yum-utils   device-mapper-persistent-data   lvm2
+yum-config-manager     --add-repo     http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# yum-config-manager --enable docker-ce-nightly #要每日构建版本的 Docker CE
+# yum-config-manager --enable docker-ce-test  
+yum install docker-ce docker-ce-cli containerd.io
+
+# 查看是否安装成功
+docker --version
+# 启动docker并设置开机启动
+systemctl start docker
+systemctl enable docker
+```
+
+## 卸载docker
+```sh
+docker info
+yum remove docker
+rm -rf /var/lib/docker
+```
+
+
 简易步骤部署
 
 ## 1. 编写Dockerfile
@@ -20,6 +43,33 @@ RUN  npm install \     && npm run build \     && cp -r dist/* /var/www/html \   
 CMD ["nginx","-g","daemon off;"]
 ```
 
+
+多阶段构建
+通过多阶段构建可以,指定node作为build目录,然后用nginx镜像启动
+镜像体积就会减小
+```sh
+FROM node:lts-alpine AS builder
+WORKDIR /app
+
+ADD package.json /app
+RUN npm install --production --registry=https://registry.npm.taobao.org
+
+COPY . /app
+
+RUN npm run build
+
+FROM nginx:stable-alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+ADD default.conf /etc/nginx/conf.d/
+
+EXPOSE 80
+
+WORKDIR /usr/share/nginx/html
+
+RUN chmod -R a+rx *
+```
+
 `-t getting-started` 是起的镜像名称为`getting-started`
 `-d` detached的缩写,表示独立的
 `-p` port的缩写, 表示 3000对3000的端口
@@ -30,10 +80,14 @@ CMD ["nginx","-g","daemon off;"]
 yum install docker
 # 启动docker
 systemctl start docker
+```
+
+在有dockerfile的文件下创建镜像
+```sh
 # 创建镜像
 docker build -t getting-started .
-# 跑镜像
-docker run -dp 3000:3000 getting-started
+# 跑镜像 [主机端口]:[容器端口] 容器端口由nginx决定
+docker run -dp 3000:80 getting-started
 # 获取docker列表
 docker ps
 # 停止docker
