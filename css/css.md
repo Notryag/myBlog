@@ -41,7 +41,7 @@ align-content属性定义了多根轴线的对齐方式。如果项目只有一�
 + flex-shrink 默认为1，即如果空间不足，该项目将缩小。为0空间不足也不缩小
 + flex-basis 
 + flex  默认0 1 auto;有2个快捷值auto (1 1 auto) 和 none (0 0 auto)。
-+ align-self align-self属性允许单个项目有与其他项目不一样的对齐方式
++ align-self align-self属性允许`单个项目有与其他项目不一样的对齐方式`
 
 
 ### rem
