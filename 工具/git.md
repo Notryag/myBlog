@@ -10,3 +10,24 @@ git add .
 git commit -m "第一次提交"
 git push origin master
 ```
+
+### …or create a new repository on the command line
+```shell
+echo "# next-template" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin git@github.com:Notryag/next-template.git
+git push -u origin master
+```
+### or push an existing repository from the command line
+```shell
+git remote add origin git@github.com:Notryag/next-template.git
+git branch -M master
+git push -u origin master
+```
+
+### or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+

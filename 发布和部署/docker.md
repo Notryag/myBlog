@@ -161,3 +161,6 @@ wsl --import docker-desktop-data D:\docker\docker-desktop-data D:\docker\docker-
 wsl --import docker-desktop D:\docker\docker-desktop D:\docker\docker-desktop.tar --version 2
 
 ```
+
+
+运行nginx
