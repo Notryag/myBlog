@@ -104,6 +104,7 @@ docker exec -it <the-container-id> /bin/bash
 
 镜像常用命令
 ```sh
+docker search nginx 搜索基础镜像
 docker pull [镜像名称:版本] 拉取镜像
 docker images  镜像列表
 docker rmi [镜像名称:版本] 删除镜像
@@ -130,3 +131,36 @@ docker restart <container_id> 重启容器
 docker inspect <container_id> 查看容器详情
 docker commit [容器名称] my_image:v1.0  容器提交为新的镜像	
 ```
+
+启动服务
+```shell
+docker run -d --name nginx01 -p 80:80 nginx
+# -d 后台运行
+# -name 给容器命名
+# -p 宿主机端口：容器内部端口
+```
+
+添加mysql
+```shell
+docker run --name mysql-test -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.7
+
+grant all privileges on *.* to root@"%" identified by "root";
+```
+
+修改docker的存储位置
+```shell
+wsl --export docker-desktop D:\docker\docker-desktop.tar
+wsl --export docker-desktop-data D:\docker\docker-desktop-data.tar 
+
+wsl --shutdown
+
+wsl --unregister docker-desktop
+wsl --unregister docker-desktop-data
+
+wsl --import docker-desktop-data D:\docker\docker-desktop-data D:\docker\docker-desktop-data.tar --version 2
+wsl --import docker-desktop D:\docker\docker-desktop D:\docker\docker-desktop.tar --version 2
+
+```
+
+
+运行nginx

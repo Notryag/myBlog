@@ -5,3 +5,12 @@ cp
 ```sh
 cp -r dist/* /var/www/html
 ```
+
+
+查看myslq进程
+```shell
+ps -ef | grep mysql
+kill ${id} // 关闭mysql进程
+
+service mysqld start // 启动mysql
+```
