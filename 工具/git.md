@@ -47,9 +47,12 @@ git push -u origin master
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
 
 
-```dash
+```bash
+# 添加子项目
 git submodule add <git-repo-url> <submodule-local-path>
+# 拉取到本地
 git submodule update --init --recursive
-
+# 更新子项目
+git submodule update --remote
 ```
 
