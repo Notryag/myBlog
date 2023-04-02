@@ -1,6 +1,21 @@
 本地有仓库，设置远程仓库地址后再push
 
-```shell
+
+SSH 密钥文件通常位于用户主目录的 .ssh 文件夹中
+
+生成本地的sshkey
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+查看本地的sshkey
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+在拿到sshkey之后就可以去`github`上面的setting中添加key了, 之后pull,push等就不需要输入密码了
+
+```bash
 git init 
 git remote add origin https://gitee.com/用户个性地址/HelloGitee.git
 
@@ -12,7 +27,7 @@ git push origin master
 ```
 
 ### …or create a new repository on the command line
-```shell
+```bash
 echo "# next-template" >> README.md
 git init
 git add README.md
@@ -22,7 +37,7 @@ git remote add origin git@github.com:Notryag/next-template.git
 git push -u origin master
 ```
 ### or push an existing repository from the command line
-```shell
+```bash
 git remote add origin git@github.com:Notryag/next-template.git
 git branch -M master
 git push -u origin master
