@@ -21,7 +21,7 @@ npm config set registry https://registry.npm.taobao.org/
 3. 发布
 `npm publish`
 
-```shell
+```bash
 // patch：补丁号，修复bug，小变动，如 v1.0.0->v1.0.1
 npm version patch
 
@@ -30,4 +30,22 @@ npm version minor
 
 // major：主版本号，不兼容的修改，如 v1.0.0->v2.0.0
 npm version major
+```
+
+```bash
+# 管理npm的代理
+npm i -g nrm  
+nrm current 
+nrm use npm 
+nrm use taobao
+# 升级node 本身
+npm i n -g  
+n lastest
+n statble
+## 安装nvm
+git clone git://github.com/creationix/nvm.git ~/nvm
+cd /root/nvm
+. nvm.sh
+## 安装nodejs 稳定版
+nvm install stable
 ```
