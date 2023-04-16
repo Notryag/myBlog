@@ -14,3 +14,8 @@ kill ${id} // 关闭mysql进程
 
 service mysqld start // 启动mysql
 ```
+
+```bash
+# copy命令
+COPY <源路径> <目标路径>
+```
