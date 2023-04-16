@@ -56,3 +56,9 @@ git submodule update --init --recursive
 git submodule update --remote
 ```
 
+
+### 推送tag
+```js
+git tag 1.00
+git push origin --tags
+```
