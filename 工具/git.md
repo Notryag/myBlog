@@ -46,6 +46,20 @@ git push -u origin master
 ### or import code from another repository
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
 
+git remote rm origin
+```shell
+git remote rm origin
+
+git remote add origin git@github.com:gatieme/AderSCloud.git
+
+git remote -v
+# 回退到上个版本
+git reset --soft HEAD
+git reset –hard HEAD~3  # 回退上上上一个版本  
+git reset –hard bae128  # 回退到某个版本回退点之前的所有信息。 
+git reset --hard origin/master    # 将本地的状态回退到和远程的一样 
+```
+
 
 ```bash
 # 添加子项目
