@@ -98,16 +98,26 @@ kubectl rollout undo deploy/my-nginx --to-reversion=1
 
 ## service
 
+
+Service为一组 Pod 提供相同的 DNS 名，并且在它们之间进行负载均衡。
+Kubernetes 为 Pod 提供分配了IP 地址，但IP地址可能会发生变化。
+> 集群内的容器可以通过service名称访问服务，而不需要担心Pod的IP发生变化。
+
 ```bash
 kubectl expose deploy/my-nginx --name=nginx-service --port=8080 --target-port=80
 
 kubectl get svc
-# 创建的service在 集群内部可以通过CLUSTER-IP:PORT访问
+# 创建的service在 集群内部主机 可以通过CLUSTER-IP:PORT访问
 # 集群内部的服务可以通过service名称访问服务
 kubectl run test --image=nginx:1.24 -it --rm -- bash
-# 在容器内部可以通过service的name:port访问服务
+# 在 集群内部容器 可以通过service的name:port访问服务
 curl nginx-service:8080
 
-
 kubecel describe svc nginx-service
+```
+
+# namespace
+```bash
+kubectl get cm
+
 ```
