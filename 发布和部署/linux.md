@@ -1,5 +1,15 @@
 ## 命令学习
 
+用户
+
+```bash
+useradd name 
+useradd name sudo
+# 修改默认的shell
+sudo usermod -s /bin/bash name
+```
+
+
 cp 
 -r 是递归复制:英文`Recursive`的缩写
 ```sh
