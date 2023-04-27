@@ -7,6 +7,10 @@ useradd name
 useradd name sudo
 # 修改默认的shell
 sudo usermod -s /bin/bash name
+# 切换用户
+su root
+# 查看用户
+cat /etc/passwd
 ```
 
 
