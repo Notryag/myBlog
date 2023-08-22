@@ -19,7 +19,6 @@ componentWillMount  等放在componentDidMount
 div.style.width = div.offsetWidth + 1 + 'px'  
 ```
 
-
 fiber 利用的就是`requestIdleCallback`实现
 fiber十八任务分成若干个,每次执行一个任务。执行完看看有没有剩余时间，如果有等待下次执行
 
@@ -32,7 +31,6 @@ jsx经过babel 转译之后会形成一个js对象。
 let element = <div> </div>
 console.log(element) 
 // 查看转换成了什么
-
 function render(element, parentDom) {
   let dom = document.createElement(element.type)
   Object.keys(element.props).filters(key => key!=='children')
@@ -44,7 +42,8 @@ function render(element, parentDom) {
   }
   parentDom.appendChild(dom)
 }
-```
+``` 
+
 如果节点多,层级特别深.又因为js是单线程,而且UI渲染和js执行是互斥的,可能引起页面卡顿
 vue的话是精准更新不是全量对比更新
 
