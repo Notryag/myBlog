@@ -1,5 +1,16 @@
 # hardhat
 
+## hardhat 用来模拟本地环境，编译合约等
+
+**必须先初始化项目**
+
+```bash
+npm init -y
+npm install hardhat -S
+```
+只有运行`npx hardhat init`
+能够正常添加依赖等信息
+
 ```bash
 # 初始化
 npx hardhat init
