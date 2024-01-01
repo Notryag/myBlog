@@ -317,3 +317,21 @@ export const AGENTS = {
 ...
 
 如果有机会可以下次讲
+
+# ni - 包自动选择工 源码实现 antfu的小工具2
+
+
+### 错误处理
+
+
+```ts
+export class UnsupportedCommand extends Error {
+  constructor({ agent, command }: { agent: Agent, command: Command }) {
+    super(`Command "${command}" is not support by agent "${agent}"`)
+  }
+}
+
+if (error instanceof UnsupportedCommand && !options.programmatic)
+      console.log(c.red(`\u2717 ${error.message}`))
+```
+自定义错误的类，可以在cache冲通过instanceof判断哪种类型的错误，对不同类型错误进行处理
